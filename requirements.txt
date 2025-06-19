@@ -1,0 +1,7 @@
+
+# requirements.txt
+
+torch
+joblib
+sentence-transformers
+tf-keras
