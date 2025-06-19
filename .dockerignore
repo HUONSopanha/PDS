@@ -1,0 +1,33 @@
+node_modules
+dist
+.git
+.gitignore
+Dockerfile
+README.md
+.env
+FROM node:18-alpine
+# Use an official Node runtime as a parent image
+FROM node:18-alpine
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install dependencies first (copy only package.json and yarn.lock)
+COPY package.json yarn.lock ./
+
+# Install dependencies (frozen lockfile ensures exact versions)
+RUN yarn install --frozen-lockfile --network-timeout 100000
+
+# Copy source code
+COPY . .
+
+# Build NestJS app
+RUN yarn build
+
+# Expose port (adjust if needed)
+EXPOSE 3000
+
+# Start app
+CMD ["node", "dist/main"]
+
+RUN yarn install --frozen-lockfile --network-timeout 100000
