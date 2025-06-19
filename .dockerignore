@@ -4,7 +4,6 @@ dist
 .gitignore
 Dockerfile
 README.md
-.env
 FROM node:18-alpine
 # Use an official Node runtime as a parent image
 FROM node:18-alpine
