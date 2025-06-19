@@ -19,7 +19,9 @@ import { Title } from './ml/entities/title.entity'; // Adjust the import path as
       database: process.env.DB_NAME,
       autoLoadEntities: true,
       synchronize: true,
-      ssl: true, // for Railway cloud connection
+      ssl: {
+        rejectUnauthorized: false,
+      }, // for Railway cloud connection
     }),
     TypeOrmModule.forFeature([Title]),
   ],
